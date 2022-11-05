@@ -67,48 +67,6 @@ def GD_lr_schedule(func, g_func, theta0_i, theta1_i, start_lr = 0.1, drop = 0.5,
     return i, theta0_i, theta1_i, func(theta0_i, theta1_i)
 
 
-"""
-def SGD(func, g_func, theta0_i, theta1_i, alpha = 0.1):
-
-    #x_data = torch.normal(mean = torch.arange(0.0, 1.), std = torch.arange(1, 0, -0.1))
-    #y_data = torch.normal(mean = torch.arange(0.0, 1.), std = torch.arange(1, 0, -0.1))
-    #x_data, y_data = make_blobs(n_samples = 10, n_features = 1, random_state = 0, center_box = (0.0, 1.0))
-
-    for i in range(1100):
-      #  for x, y in zip(x_data.numpy(), y_data.numpy()):
-            #upd_theta0_i, upd_theta1_i = g_func(theta0_i, theta1_i)
-       #     upd_theta0_i, upd_theta1_i = g_func(x, y)
-
-        #    theta0_i = theta0_i - alpha * upd_theta0_i
-         #   theta1_i = theta1_i - alpha * upd_theta1_i
-
-
-            upd_theta0_i = upd_theta0_i + torch.normal(0.0, 1, (1,))
-            upd_theta1_i = upd_theta1_i + torch.normal(0.0, 1, (1,))
-
-            theta0_i = theta0_i - alpha * upd_theta0_i.numpy()[0]
-            theta1_i = theta1_i - alpha * upd_theta1_i.numpy()[0]
-
-    return theta0_i, theta1_i, func(x, y)
-
-
-def SGD_lr_schedule(func, g_func, theta0_i, theta1_i, alpha = 0.01):
-    for i in range(1100000):
-
-        if (i != 0) and (i % (100000 / 10) == 0):
-            alpha *= 0.1
-        
-        upd_theta0_i, upd_theta1_i = g_func(theta0_i, theta1_i)
-
-        upd_theta0_i = upd_theta0_i + torch.normal(0.0, 1, (1,))
-        upd_theta1_i = upd_theta1_i + torch.normal(0.0, 1, (1,))
-
-        theta0_i = theta0_i - alpha * upd_theta0_i.numpy()[0]
-        theta1_i = theta1_i - alpha * upd_theta1_i.numpy()[0]
-
-    return theta0_i, theta1_i, func(theta0_i, theta1_i)
-"""
-
 def Nesterov_momentum(func, g_func, theta0_i, theta1_i, alpha = 0.001, gamma = 0.9, eps = 0.0000001):
     v0, v1 = 0, 0
 
